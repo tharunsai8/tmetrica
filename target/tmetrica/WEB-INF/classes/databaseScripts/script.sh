@@ -1,0 +1,1 @@
+psql -d postgres -f /tmp/V1_Create_users_table.sql -f /tmp/V2_Create_activitys_table.sql -f /tmp/V3_Create_activityslogs_table.sql -f /tmp/V4_Create_users_activitys_table.sql -f /tmp/V5_Create_order_table.sql -f /tmp/V6_Create_users_role_table.sql -f /tmp/V7_Add_Stats_view.sql -f /tmp/V8_Add_data.sql
