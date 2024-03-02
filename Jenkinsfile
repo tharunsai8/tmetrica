@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  tools {
+    jdk 'openjdk'
+    maven 'Maven'
+  }
   options {
     skipDefaultCheckout(true)
     disableConcurrentBuilds()
