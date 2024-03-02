@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tmetrica
+  name: tmetrica
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tmetrica
+  template:
+    metadata:
+      labels:
+        app: tmetrica
+    spec:
+      containers:
+      - image: tharunsai8/tmetrica:16.0
+        name: tmetrica
+        envFrom:
+          - configMapRef:
+              name: tmetrica-configmap
+        ports:
+        - containerPort: 8080
+          name: tmetrica

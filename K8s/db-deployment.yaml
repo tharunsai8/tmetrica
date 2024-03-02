@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    db: tmetrica
+  name: db-tmetrica
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      db: tmetrica
+  template:
+    metadata:
+      labels:
+        db: tmetrica
+    spec:
+      containers:
+      - image: tharunsai8/postgressql.11.13:5.0
+        name: db-tmetrica
+        env:
+        - name: POSTGRES_PASSWORD
+          value: password
+        ports:
+        - containerPort: 5432
+          name: db-tmetrica
