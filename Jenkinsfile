@@ -41,7 +41,7 @@ pipeline {
         script {
           sh """
           sed -i 's/JENKINS_DOCKER_IMAGE/tharunsai8\\/tmetric:${BUILD_NUMBER}/g' K8s/timetrica-deployment.yaml
-          kubectl apply -f K8s/
+          /usr/local/bin/kubectl apply -f K8s/
           """
         }
       }
