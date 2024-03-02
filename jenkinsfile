@@ -1,0 +1,45 @@
+pipeline {
+  agent none
+  options {
+    skipDefaultCheckout(true)
+    disableConcurrentBuilds()
+  }
+  stages {
+    stage('Git Checkout') {
+      steps {
+        // Clean before build
+        cleanWs()
+        // We need to explicitly checkout from SCM here
+        checkout scm
+      }
+    }
+    stage('MVN Build') {
+      steps {
+        script {
+          sh """
+          mvn clean install
+          """
+        }
+      }
+    }
+    stage('Docker Build & Push') {
+      steps {
+        script {
+          sh """
+          docker build -t tharunsai8/tmetric:${BUILD_NUMBER} .
+          docker push tharunsai8/tmetric:${BUILD_NUMBER}
+          """
+        }
+      }
+    }
+    stage('K8s Deploy') {
+      steps {
+        script {
+          sh """
+          kubectl apply -f K8s/
+          """
+        }
+      }
+    }
+  }
+}
