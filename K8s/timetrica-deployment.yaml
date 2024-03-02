@@ -15,7 +15,7 @@ spec:
         app: tmetrica
     spec:
       containers:
-      - image: tharunsai8/tmetrica:16.0
+      - image: JENKINS_DOCKER_IMAGE
         name: tmetrica
         envFrom:
           - configMapRef:
