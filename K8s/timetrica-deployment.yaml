@@ -17,9 +17,6 @@ spec:
       containers:
       - image: JENKINS_DOCKER_IMAGE
         name: tmetrica
-        envFrom:
-          - configMapRef:
-              name: tmetrica-configmap
         ports:
         - containerPort: 8080
           name: tmetrica
