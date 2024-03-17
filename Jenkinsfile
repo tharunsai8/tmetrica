@@ -30,8 +30,8 @@ pipeline {
       steps {
         script {
           sh """
-          docker build -t tharunsai8/tmetric:${BUILD_NUMBER} .
-          docker push tharunsai8/tmetric:${BUILD_NUMBER}
+          docker build -t tharunsai8-docker/tmetric:${BUILD_NUMBER} .
+          docker push tharunsai8-docker/tmetric:${BUILD_NUMBER}
           """
         }
       }
