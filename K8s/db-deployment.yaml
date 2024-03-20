@@ -5,7 +5,7 @@ metadata:
     db: tmetrica
   name: db-tmetrica
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       db: tmetrica
