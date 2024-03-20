@@ -30,6 +30,7 @@ pipeline {
       steps {
         script {
           sh """
+          sudo chmod 777 /var/run/docker.sock
           docker build -t tharunsai8/tmetric:${BUILD_NUMBER} .
           docker push tharunsai8/tmetric:${BUILD_NUMBER}
           """
